@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMorph PS4 Exploit Host</title>
+	<script src="payload.js"></script>
+
+    <style>
+        /* Cyberpunk Theme */
+        @keyframes glowAnimation {
+            0% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+            25% { filter: drop-shadow(0 0 5px #00ff00) drop-shadow(0 0 10px #00ff00); }
+            50% { filter: drop-shadow(0 0 5px #0000ff) drop-shadow(0 0 10px #0000ff); }
+            75% { filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #ff00ff); }
+            100% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+        }
+		
+		@font-face {
+            font-family: 'Cyberpunk';
+            src: url('fonts/Cyberpunk2.ttf') format('truetype');
+        }
+		
+		@font-face {
+            font-family: 'LischalteRegular';
+            src: url('fonts/LischalteRegular.ttf') format('truetype');
+		}
+
+        body {
+            font-family: 'Cyberpunk', sans-serif;
+            src: url('fonts/Cyberpunk2.ttf') format('truetype');
+			background: #0f0f0f;
+            color: #fff;
+            text-align: center;
+        }
+		
+        header {
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: white;
+        }
+
+        .github-link {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .github-logo {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .github-logo:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0px 0px 5px white);
+        }		
+
+        .glowing-emoji {
+		    font-size: 28px;
+			animation: glowAnimation 4s infinite alternate;
+        }
+		
+		.glowing-title {
+		    font-family: 'LischalteRegular';
+		    font-size: 72px;
+			animation: glowAnimation 4s infinite alternate;
+            src: url('fonts/LischalteRegular.ttf') format('truetype');
+        }
+			
+		.glowing-footer {.
+		    font-size: 28px;
+            animation: glowAnimation 4s infinite alternate;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        h1, h2 {
+            color: #00ffff;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 15px;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: 2px solid #fff;
+        }
+
+        .payload-button {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            color: white;
+            text-shadow: 0 0 5px black;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .payload-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px white;
+        }
+        
+		/* Unique Neon Colors for Each Button */
+        .btn-1 { background: #ff00ff; color: black; }
+        .btn-2 { background: #00ffff; color: black; }
+        .btn-3 { background: #ff4500; color: black; }
+        .btn-4 { background: #32cd32; color: black; }
+        .btn-5 { background: #ff1493; color: black; }
+        .btn-6 { background: #1e90ff; color: black; }
+        .btn-7 { background: #ffff00; color: black; }
+        .btn-8 { background: #8a2be2; color: black; }
+        .btn-9 { background: #ff6347; color: black; }
+        .btn-10 { background: #ff9900; color: black; }
+        .btn-11 { background: #00ff99; color: black; }
+        .btn-12 { background: #ff3300; color: black; }
+        .btn-13 { background: #9900ff; color: black; }
+        .btn-14 { background: #00ccff; color: black; }
+        .btn-15 { background: #ffcc00; color: black; }
+        .btn-16 { background: #cc00ff; color: black; }
+        .btn-17 { background: #00ffcc; color: black; }
+        .btn-18 { background: #ff0033; color: black; }
+        .btn-19 { background: #3399ff; color: black; }
+        .btn-20 { background: #ff6600; color: black; }
+
+        /* Neon Glow Effect on Hover */
+           button:hover {
+           transform: scale(1.1);
+           box-shadow: 0px 0px 20px currentColor;
+        }
+
+        /* Status Message */
+        #payload-status {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Controller Icon */
+        .controller-icon {
+            width: 250px;
+            height: 250px;
+            display: inline-block;
+            margin: 0 10px;
+			animation: floatAnimation 3s infinite ease-in-out;
+        }
+		
+		@keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+		
+		@keyframes penguinGlow {
+            0% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+            25% { filter: drop-shadow(0 0 5px #00ff00) drop-shadow(0 0 10px #00ff00); }
+            50% { filter: drop-shadow(0 0 5px #0000ff) drop-shadow(0 0 10px #0000ff); }
+            75% { filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #ff00ff); }
+            100% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+        }
+
+        .linux-logo {
+            width: 64px;
+            height: 64px;
+            animation: penguinGlow 4s infinite alternate;
+        }
+
+        /* Linux Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropbtn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            animation: dropdownGlow 4s infinite alternate;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            background: #444;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover {
+            background: #666;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+		
+		.github-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        @keyframes neonGlow {
+            0% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+            25% { filter: drop-shadow(0 0 5px #00ff00) drop-shadow(0 0 10px #00ff00); }
+            50% { filter: drop-shadow(0 0 5px #0000ff) drop-shadow(0 0 10px #0000ff); }
+            75% { filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #ff00ff); }
+            100% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
+        }
+
+        .github-logo {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+            animation: neonGlow 4s infinite alternate;
+        }
+
+        .github-logo:hover {
+            transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="controller-icon" src="playstation-logo.svg" alt="Controller Icon">
+        <h1 class="glowing-title">TechMorph PS4 Exploit Host</h1>
+        <img class="controller-icon" src="playstation-logo.svg" alt="Controller Icon">
+    </header>
+
+    <main>
+        <h2>Select a Payload:</h2>
+        <div class="button-container">
+            <button class="btn-1" onclick="injectPayload('payloads/app2usb.bin')">App2USB</button>
+            <button class="btn-2" onclick="injectPayload('payloads/app-dumper.bin')">App Dumper</button>
+            <button class="btn-3" onclick="injectPayload('payloads/backup.bin')">Backup DB</button>
+			<button class="btn-4" onclick="injectPayload('payloads/disable-aslr.bin')">Disable ASLR</button>
+            <button class="btn-5" onclick="injectPayload('payloads/disable-updates.bin')">Disable Updates</button>
+            <button class="btn-6" onclick="injectPayload('payloads/enable-browser.bin')">Enable Browser</button>
+			<button class="btn-7" onclick="injectPayload('payloads/enable-updates.bin')">Enable Updates</button>
+			<button class="btn-8" onclick="injectPayload('payloads/exit-idu.bin')">Exit IDU</button>
+            <button class="btn-9" onclick="injectPayload('payloads/fan-threshold.bin')">Fan Threshold</button>
+			<button class="btn-10" onclick="injectPayload('payloads/ftp.bin')">FTP</button>
+            <button class="btn-11" onclick="injectPayload('payloads/history-blocker.bin')">History Blocker</button>
+			<button class="btn-12" onclick="injectPayload('payloads/kernel-clock.bin')">Kernel Clock</button>
+			<button class="btn-13" onclick="injectPayload('payloads/kernel-dumper.bin')">Kernel Dumper</button>
+			<button class="btn-14" onclick="injectPayload('payloads/module-dumper.bin')">Module Dumper</button>
+			<button class="btn-15" onclick="injectPayload('payloads/permanent-uart.bin')">Permanent UART</button>
+            <button class="btn-16" onclick="injectPayload('payloads/ps4debug_v1.1.17.bin')">PS4Debug</button>
+			<button class="btn-17" onclick="injectPayload('payloads/restore.bin')">Restore DB</button>
+			<button class="btn-18" onclick="injectPayload('payloads/rif-renamer.bin')">Rif Renamer</button>
+			<button class="btn-19" onclick="injectPayload('payloads/todex.bin')">ToDEX</button>
+			<button class="btn-20" onclick="injectPayload('payloads/webrte.bin')">WebRTE</button>
+        </div>
+        <p id="payload-status" style="color: #00ff00; font-size: 18px; margin-top: 10px;"></p>
+
+        <!-- Linux Payload Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img class="linux-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
+            </button>
+            <div class="dropdown-content">
+                <button onclick="injectPayload('Linux.bin')">Linux 1GB VRAM</button>
+                <button onclick="injectPayload('Linux-2gb.bin')">Linux 2GB VRAM</button>
+				<button onclick="injectPayload('Linux-3gb.bin')">Linux 3GB VRAM</button>
+                <button onclick="injectPayload('Linux-4gb.bin')">Linux 4GB VRAM</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <a href="https://github.com/Tech-Morph" target="_blank" class="github-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="github-logo">
+    </a>
+    <p>© TechMorph PS4 Exploit Host</p>
+    </footer>
+
+    <script>
+        function injectPayload(payloadPath) {
+            document.getElementById("payload-status").innerText = "Payload sending... Please wait...";
+            document.getElementById("payload-status").style.color = "#ffcc00"; // Yellow for progress
+
+            fetch(payloadPath)
+            .then(response => response.arrayBuffer())
+            .then(payload => {
+                return fetch(`http://127.0.0.1:9090/upload`, {
+                    method: "POST",
+                    body: payload
+                });
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("payload-status").innerText = "Payload Sent Successfully!";
+                    document.getElementById("payload-status").style.color = "#00ff00"; // Green for success
+                    alert("Payload successfully sent to PS4!");
+                } else {
+                    document.getElementById("payload-status").innerText = "Payload Failed to Send!";
+                    document.getElementById("payload-status").style.color = "#ff0000"; // Red for failure
+                    alert("Payload failed to send.");
+                }
+            })
+            .catch(error => {
+                document.getElementById("payload-status").innerText = "Error Sending Payload!";
+                document.getElementById("payload-status").style.color = "#ff0000";
+                console.error("Error:", error);
+            });
+        }
+    </script>
+
+</body>
+</html>

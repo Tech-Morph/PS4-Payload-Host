@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# Version 1.0
+
+CACHE:
+index.html
+payload.js
+style.css
+payloads/app2usb.bin
+payloads/app-dumper.bin
+payloads/backup.bin
+payloads/disable-updates.bin
+payloads/enable-browser.bin
+payloads/fan-threshold.bin
+payloads/history-blocker.bin
+payloads/ps4debug_v1.1.17.bin
+payloads/webrte.bin
+payloads/linux-1gb.bin
+payloads/linux-2gb.bin
+payloads/linux-3gb.bin
+payloads/linux-4gb.bin
+
+NETWORK:
+*
