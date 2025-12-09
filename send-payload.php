@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Send payload to the PS4 via socket
-    $ps4_ip = "192.168.1.82"; // Change to your PS4's actual IP!
+    $ps4_ip = "127.0.0.1"; // Change to your PS4's actual IP!
     $ps4_port = 9090; // Default GoldHEN Bin Loader port
 
     $socket = fsockopen($ps4_ip, $ps4_port, $errno, $errstr, 5);
