@@ -7,7 +7,6 @@
 	<script src="payload.js"></script>
 
     <style>
-        /* Cyberpunk Theme */
         @keyframes glowAnimation {
             0% { filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000); }
             25% { filter: drop-shadow(0 0 5px #00ff00) drop-shadow(0 0 10px #00ff00); }
@@ -105,7 +104,6 @@
             margin-top: 20px;
         }
 
-        /* Button Styling */
         button {
             padding: 15px;
             color: white;
@@ -134,7 +132,6 @@
             box-shadow: 0px 0px 20px white;
         }
         
-		/* Unique Neon Colors for Each Button */
         .btn-1 { background: #ff00ff; color: black; }
         .btn-2 { background: #00ffff; color: black; }
         .btn-3 { background: #ff4500; color: black; }
@@ -156,20 +153,17 @@
         .btn-19 { background: #3399ff; color: black; }
         .btn-20 { background: #ff6600; color: black; }
 
-        /* Neon Glow Effect on Hover */
            button:hover {
            transform: scale(1.1);
            box-shadow: 0px 0px 20px currentColor;
         }
 
-        /* Status Message */
         #payload-status {
             font-size: 18px;
             margin-top: 15px;
             font-weight: bold;
         }
 
-        /* Controller Icon */
         .controller-icon {
             width: 250px;
             height: 250px;
@@ -198,7 +192,6 @@
             animation: penguinGlow 4s infinite alternate;
         }
 
-        /* Linux Dropdown */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -305,7 +298,6 @@
         </div>
         <p id="payload-status" style="color: #00ff00; font-size: 18px; margin-top: 10px;"></p>
 
-        <!-- Linux Payload Dropdown -->
         <div class="dropdown">
             <button class="dropbtn">
                 <img class="linux-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux">
@@ -329,7 +321,7 @@
     <script>
         function injectPayload(payloadPath) {
             document.getElementById("payload-status").innerText = "Payload sending... Please wait...";
-            document.getElementById("payload-status").style.color = "#ffcc00"; // Yellow for progress
+            document.getElementById("payload-status").style.color = "#ffcc00";
 
             fetch(payloadPath)
             .then(response => response.arrayBuffer())
@@ -342,11 +334,11 @@
             .then(response => {
                 if (response.ok) {
                     document.getElementById("payload-status").innerText = "Payload Sent Successfully!";
-                    document.getElementById("payload-status").style.color = "#00ff00"; // Green for success
+                    document.getElementById("payload-status").style.color = "#00ff00";
                     alert("Payload successfully sent to PS4!");
                 } else {
                     document.getElementById("payload-status").innerText = "Payload Failed to Send!";
-                    document.getElementById("payload-status").style.color = "#ff0000"; // Red for failure
+                    document.getElementById("payload-status").style.color = "#ff0000";
                     alert("Payload failed to send.");
                 }
             })
